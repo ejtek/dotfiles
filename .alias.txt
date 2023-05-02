@@ -1,0 +1,51 @@
+# custom aliases
+
+# navigation
+# alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+# change "ls" to "lsd"
+alias ls="lsd"
+alias ll="lsd -l"
+alias la="lsd -a"
+alias lla="lsd -al"
+
+# confirm before overwrite
+# alias cp="cp -i"
+# alias mv="mv -i"
+# alias rm="rm -i"
+
+# maintenance
+alias du="du -h"
+alias df="df -h"
+alias free='free -h'
+alias mem5="ps auxf | sort -nr -k 4 | head -5"
+alias cpu5="ps auxf | sort -nr -k 3 | head -5"
+alias lsmount="mount | column -t"
+
+# other
+alias grep="rg"
+alias cat="batcat"
+alias ff="firefox"
+alias note="notepadqq"
+alias extip="curl icanhazip.com"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+
+# colors
+alias diff='colordiff'
+# alias ls ='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color'
+# alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+# alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+
+# script
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index

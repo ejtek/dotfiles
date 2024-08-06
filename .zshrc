@@ -41,9 +41,14 @@ bindkey '^[[H' beginning-of-line                  # home
 bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
+# load Git completion
+zstyle ':completion:*:*:git:*' script ~/.config/zsh/git-completion.bash
+fpath=(~/.config/zsh $fpath)
+
 # enable completion features
 autoload -Uz compinit
-compinit -d ~/.cache/zcompdump
+
+compinit -d ~/.cache/.zcompdump
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete
@@ -62,11 +67,11 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-#setopt share_history         # share command history data
+setopt hist_expire_dups_first    # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups          # ignore duplicated commands history list
+setopt hist_ignore_space         # ignore commands that start with space
+setopt hist_verify               # show command with history expansion to user before running it
+#setopt share_history            # share command history data
 
 # force zsh to show the complete history
 alias history="history 0"
@@ -106,7 +111,7 @@ fi
 configure_prompt() {
     prompt_symbol=㉿
     # Skull emoji for root terminal
-    #[ "$EUID" -eq 0 ] && prompt_symbol=💀
+    [ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
         twoline)
             PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
@@ -254,54 +259,55 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# path options
-typeset -U PATH path
-path=("$HOME/.local/bin" "$path[@]")
-
-# XDG base directory
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-
-# ssh-add
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# lesshst
-export LESSHISTFILE="${XDG_CONFIG_HOME}/less/lesshst"
-export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
-
-# wget
-export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
-
-# libdvdcss
-export DVDCSS_CACHE="${XDG_DATA_HOME}/dvdcss"
-
-# awscli
-export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
-export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
-
-# set editor
-export editor="vim"
 
 # directory stack
 setopt AUTO_PUSHD			# push the current directory visited on the stack
 setopt PUSHD_IGNORE_DUPS	# do not store duplicates in the stack
 setopt PUSHD_SILENT			# do not print the directory stack after pushd or popd
 
-# autocomplete
+### path options
+typeset -U PATH path
+path=("$HOME/.local/bin" "$path[@]")
+
+### XDG base directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+### ssh-add
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+### lesshst
+export LESSHISTFILE="${XDG_CONFIG_HOME}/less/lesshst"
+export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
+
+### wget
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+
+### libdvdcss
+export DVDCSS_CACHE="${XDG_DATA_HOME}/dvdcss"
+
+### awscli
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+
+### set editor
+export editor="vim"
+
+### autocomplete
 _comp_options+=(globdots) 	# with hidden files
 #source ~/.zsh/completion.zsh
 
-# alias
+### alias
 if [ -f $HOME/.alias.txt ]; then
     source $HOME/.alias.txt
 else
     print "404: ~/.alias.txt not found."
 fi
 
-# archive extraction
-# usage: ex <file>
+### archive extraction
+### usage: ex <file>
 ex ()
 {
   if [ -f "$1" ] ; then

@@ -19,12 +19,13 @@ syntax on
 set number
 
 " Highlight cursor line underneath the cursor horizontally.
-color desert
+colorscheme desert
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Highlight cursor line underneath the cursor vertically.
 " set cursorcolumn
+
 " Set shift width to 4 spaces.
 set shiftwidth=4
 
@@ -44,7 +45,7 @@ set nobackup
 set directory=~/.vim/backup//
 
 " tell vim where to put viminfo file
-set viminfofile=~/.viminfo
+set viminfofile=~/.vim/.viminfo
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=10
@@ -75,7 +76,7 @@ set showmatch
 set hlsearch
 
 " Set the commands to save in history default number is 20.
-set history=50
+set history=20
 
 " Enable auto completion menu after pressing TAB.
 set wildmenu
@@ -83,14 +84,31 @@ set wildmenu
 " Make wildmenu behave like similar to Bash completion.
 set wildmode=list:longest
 
-" Search down into sub-directories
-" Provides tab-completion for all file-related tasks 
+" Search sub-directories
+" Tab-completion for all file-related tasks 
 " Use TAB to :find by partial match - use * to kake it fuzzy
 set path+=**
 
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Autocomplete
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+" Template
+augroup skeletons
+  au!
+  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skel.'.expand("<afile>:e")
+augroup END
 
 " NERDTree settings
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -102,7 +120,8 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 "
 call plug#begin('~/.vim/plugged')
 
-Plug 'vimwiki/vimwiki'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/AutoComplPop'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
@@ -114,7 +133,7 @@ call plug#end()
 
 " Mappings code goes here.
 
-nmap <c-n> :NERDTreeToggle<CR>
+nmap <c-t> :NERDTreeToggle<CR>
 
 " }}}
 

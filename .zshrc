@@ -293,7 +293,7 @@ export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
 
 ### set editor
-export editor="vim"
+#export editor="vim"
 
 ### autocomplete
 _comp_options+=(globdots) 	# with hidden files
@@ -333,4 +333,4 @@ ex ()
   fi
 }
 
-neofetch
+neofetch | lolcat

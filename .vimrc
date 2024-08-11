@@ -19,12 +19,11 @@ syntax on
 set number
 
 " Highlight cursor line underneath the cursor horizontally.
-colorscheme desert
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+"set background=dark
+"colorscheme Evening
 
-" Highlight cursor line underneath the cursor vertically.
-" set cursorcolumn
+"set cursorline
+"hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Set shift width to 4 spaces.
 set shiftwidth=4
@@ -122,7 +121,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/AutoComplPop'
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
 

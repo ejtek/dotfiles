@@ -1,1 +1,7 @@
-/home/gh0st/.gitconfig
+[user]
+	name = ejtek
+	email = 25411313+ejtek@users.noreply.github.com 
+[alias]
+	nccommit = commit --allow-empty-message -m \"\"
+[init]
+	templateDir = /home/gh0st/git-templates

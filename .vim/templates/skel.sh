@@ -1,1 +1,1 @@
-/home/gh0st/.vim/templates/skel.sh
+#!/bin/bash

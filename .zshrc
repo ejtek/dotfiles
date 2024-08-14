@@ -269,9 +269,8 @@ setopt AUTO_PUSHD			# push the current directory visited on the stack
 setopt PUSHD_IGNORE_DUPS	# do not store duplicates in the stack
 setopt PUSHD_SILENT			# do not print the directory stack after pushd or popd
 
-### path options
-typeset -U PATH path
-path=("$HOME/.local/bin" "$path[@]")
+### local PATH 
+export PATH=$PATH:~/.local/bin:/usr/bin/ 
 
 ### XDG base directory
 export XDG_CONFIG_HOME="$HOME/.config"

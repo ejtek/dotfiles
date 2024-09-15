@@ -1,5 +1,58 @@
 " vimrc config
 
+" Runtimepath
+set runtimepath^=~/.config/vim/
+
+
+" PLUGINS ---------------------------------------------------------------- {{{
+
+" Plugin code goes here.
+
+call plug#begin('~/.config/vim/plugged/')
+
+Plug 'vim-airline/vim-airline'
+Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'nordtheme/vim'
+Plug 'preservim/nerdtree'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/AutoComplPop'
+
+call plug#end()
+
+" }}}
+
+
+" MAPPINGS --------------------------------------------------------------- {{{
+
+" Mappings code goes here.
+
+nmap <c-t> :NERDTreeToggle<CR>
+
+" }}}i
+
+
+" VIMSCRIPT -------------------------------------------------------------- {{{
+
+" This will enable code folding.
+" Use the marker method of folding.
+
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" More Vimscripts code goes here.
+
+" }}}i
+
+
+" STATUS LINE ------------------------------------------------------------ {{{
+
+" Status bar code goes here.
+
+" }}}
+
+
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
@@ -12,18 +65,20 @@ filetype plugin on
 " Load an indent file for the detected file type.
 filetype indent on
 
+" Add relative numbers to each line.
+set number relativenumber
+
+" Color settings
+set background=dark
+
 " Turn syntax highlighting on.
 syntax on
 
-" Add numbers to each line on the left-hand side.
-set number
+set cursorline
+set termguicolors 
+colorscheme dracula
 
-" Highlight cursor line underneath the cursor horizontally.
-"set background=dark
-"colorscheme Evening
-
-"set cursorline
-"hi CursorLine term=bold cterm=bold guibg=Grey40
+hi Comment cterm=italic
 
 " Set shift width to 4 spaces.
 set shiftwidth=4
@@ -38,13 +93,13 @@ set expandtab
 set nobackup
 
 " tell vim where to put its backup files
-" set backupdir=~/.vim/backup//
+" set backupdir=~/.config/vim/backup//
 
 " tell vim where to put swap files
-set directory=~/.vim/backup//
+set directory=~/.config/vim/backup//
 
 " tell vim where to put viminfo file
-set viminfofile=~/.vim/.viminfo
+set viminfofile=~/.config/vim/.viminfo
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=10
@@ -83,6 +138,9 @@ set wildmenu
 " Make wildmenu behave like similar to Bash completion.
 set wildmode=list:longest
 
+" Disable sound
+set belloff=all
+
 " Search sub-directories
 " Tab-completion for all file-related tasks 
 " Use TAB to :find by partial match - use * to kake it fuzzy
@@ -106,53 +164,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 " Template
 augroup skeletons
   au!
-  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skel.'.expand("<afile>:e")
+  autocmd BufNewFile *.* silent! execute '0r ~/.config/vim/templates/skel.'.expand("<afile>:e")
 augroup END
 
 " NERDTree settings
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-
-" PLUGINS ---------------------------------------------------------------- {{{
-
-" Plugin code goes here.
-"
-call plug#begin('~/.vim/plugged')
-
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-scripts/AutoComplPop'
-
-call plug#end()
-
-" }}}
-
-
-" MAPPINGS --------------------------------------------------------------- {{{
-
-" Mappings code goes here.
-
-nmap <c-t> :NERDTreeToggle<CR>
-
-" }}}
-
-
-" VIMSCRIPT -------------------------------------------------------------- {{{
-
-" This will enable code folding.
-" Use the marker method of folding.
-
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" More Vimscripts code goes here.
-
-" }}}
-
-
-" STATUS LINE ------------------------------------------------------------ {{{
-
-" Status bar code goes here.
-
-" }}}

@@ -1,6 +1,6 @@
-#############
+###########
 # ALIASES 
-#############
+###########
 
 # NAVIGATION
 alias ..='cd ..'
@@ -13,8 +13,7 @@ alias .5='cd ../../../../..'
 # CHANGE "ls" to "lsd"
 alias ls="lsd"
 alias ll="lsd -l"
-alias la="lsd -a"
-alias lla="lsd -al"
+alias la="lsd -al"
 
 # CONFIRM INTERACTIVE
 alias cp="cp -i"
@@ -47,7 +46,6 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 
 # COLORS
 alias diff='colordiff'
-# alias ls ='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color'
 alias grep='grep --color=auto'
@@ -55,6 +53,11 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
+
+## OTHER
+alias 'valias'='vim ~/.config/zsh/aliases.zsh'
+alias 'vhistory'='vim ~/.zsh_history'
+alias 'vzshrc'='vim ~/.zshrc'
 
 # SCRIPTS
 alias d='dirs -v'

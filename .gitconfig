@@ -1,6 +1,0 @@
-[user]
-	name = ejtek
-	email = 25411313+ejtek@users.noreply.github.com 
-[alias]
-	nccommit = commit --allow-empty-message -m \"\"
-

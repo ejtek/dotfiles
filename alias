@@ -2,14 +2,20 @@
 # ALIASES 
 ###########
 
+## NAVIGATION
+alias la='ls -a'
+alias ll='ls -lh'
+alias lla='ls -lah'
+
 ## SYSTEM UPDATE
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
-alias sysclean='sudo apt clean && sudo apt autoclean && sudo apt autoremove --purge'
+alias sysclean='sudo pacman -Rns $(pacman -Qdtq)'
+#alias update='sudo apt update'
+#alias upgrade='sudo apt upgrade'
+#alias sysclean='sudo apt clean && sudo apt autoclean && sudo apt autoremove --purge'
 alias notes='vim ~/notes.txt'
 alias vimrc='vim ~/.vimrc'
-alias zshrc='vim ~/.zshrc'
-alias zsh_history='vim ~/.zsh_history'
+#alias zshrc='vim ~/.zshrc'
+#alias zsh_history='vim ~/.zsh_history'
 
 ## NAVIGATION
 alias ..='cd ..'
@@ -27,7 +33,7 @@ alias .5='cd ../../../../..'
 ## CONFIRM INTERACTIVE
 #alias cp="cp -i"
 alias mv="mv -i"
-# alias rm="rm -i"
+#alias rm="rm -i"
 
 ## MAINTNANCE
 alias du="du -h"
@@ -38,10 +44,11 @@ alias cpu5="ps auxf | sort -nr -k 3 | head -5"
 alias lsmount="mount | column -t"
 
 ## OTHER
+alias cht.sh='curl cheat.sh'
 alias ports='netstat -tulanp'
 alias mkdir="mkdir -pv"
 alias grep="rg"
-alias cat="batcat"
+alias cat="bat"
 alias ff="firefox"
 alias mp="mousepad"
 alias cherry="cherrytree"
@@ -64,5 +71,5 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 ## SCRIPTS
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+#alias d='dirs -v'
+#for index ({1..9}) alias "$index"="cd +${index}"; unset index

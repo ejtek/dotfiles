@@ -1,14 +1,14 @@
 " vimrc config
 
 " Runtimepath
-set runtimepath^=~/.config/vim/
+set runtimepath^=~/.vim/
 
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
 " Plugin code goes here.
 
-call plug#begin('~/.config/vim/plugged/')
+call plug#begin('~/.vim/plugged/')
 
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -96,10 +96,10 @@ set nobackup
 " set backupdir=~/.config/vim/backup//
 
 " tell vim where to put swap files
-set directory=~/.config/vim/backup//
+set directory=~/.vim/backup//
 
 " tell vim where to put viminfo file
-set viminfofile=~/.config/vim/.viminfo
+set viminfofile=~/.vim/.viminfo
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=10
@@ -164,7 +164,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 " Template
 augroup skeletons
   au!
-  autocmd BufNewFile *.* silent! execute '0r ~/.config/vim/templates/skel.'.expand("<afile>:e")
+  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skel.'.expand("<afile>:e")
 augroup END
 
 " NERDTree settings

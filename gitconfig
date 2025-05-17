@@ -4,7 +4,5 @@
 [alias]
 	nccommit = commit --allow-empty-message -m \"\"
 [safe]
-	directory = /opt/kali-anonsurf
 	directory = /opt/searxng-docker
-	directory = /opt/SecLists
 	directory = /opt/Wifi-Crack

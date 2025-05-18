@@ -19,7 +19,7 @@ ssh-add ~/.ssh/id_rsa &>/dev/null
 
 ### EXPORT
 export HISTCONTROL=ignoreboth
-export HISTCONTROL=erasedups
+###export HISTCONTROL=erasedups
 
 
 ### OPTIONS

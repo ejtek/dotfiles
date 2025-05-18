@@ -1,17 +1,18 @@
 " vimrc config
 
 " Runtimepath
-set runtimepath^=~/.vim/
+set runtimepath^=~/.config/vim/
 
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
 " Plugin code goes here.
 
-call plug#begin('~/.vim/plugged/')
+call plug#begin('~/.config/vim/plugged/')
 
+Plug 'haishanh/night-owl.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'nordtheme/vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
@@ -76,7 +77,7 @@ syntax on
 
 set cursorline
 set termguicolors 
-colorscheme dracula
+colorscheme night-owl
 
 hi Comment cterm=italic
 
@@ -96,10 +97,10 @@ set nobackup
 " set backupdir=~/.config/vim/backup//
 
 " tell vim where to put swap files
-set directory=~/.vim/backup//
+set directory=~/.config/vim/backup//
 
 " tell vim where to put viminfo file
-set viminfofile=~/.vim/.viminfo
+set viminfofile=~/.config/vim/.viminfo
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=10
@@ -164,7 +165,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 " Template
 augroup skeletons
   au!
-  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skel.'.expand("<afile>:e")
+  autocmd BufNewFile *.* silent! execute '0r ~/.config/vim/templates/skel.'.expand("<afile>:e")
 augroup END
 
 " NERDTree settings

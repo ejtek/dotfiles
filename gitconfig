@@ -5,4 +5,5 @@
 	nccommit = commit --allow-empty-message -m \"\"
 [safe]
 	directory = /opt/searxng-docker
-	directory = /opt/Wifi-Crack
+	directory = /opt/kali-wordlists
+	directory = /opt/SecLists

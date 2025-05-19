@@ -19,7 +19,7 @@ ssh-add ~/.ssh/id_rsa &>/dev/null
 
 ### EXPORT
 export HISTCONTROL=ignoreboth
-###export HISTCONTROL=erasedups
+#export HISTCONTROL=erasedups
 
 
 ### OPTIONS
@@ -30,3 +30,6 @@ bind "set completion-ignore-case on"
 if [ -f ~/.alias ]; then
     source ~/.alias
 fi
+
+### PROMPT
+PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='[\u@\H \w](${PS1_CMD1})\\$ '

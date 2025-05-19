@@ -3,19 +3,20 @@
 ###########
 
 ## NAVIGATION
-alias la='ls -a'
-alias ll='ls -lh'
-alias lla='ls -lah'
+alias ls='ls --color=auto'
+alias la='ls -a --color=auto'
+alias ll='ls -lh --color=auto'
+alias lla='ls -lah --color=auto'
 
 ## SYSTEM UPDATE
 alias sysclean='sudo pacman -Rns $(pacman -Qdtq)'
 #alias update='sudo apt update'
 #alias upgrade='sudo apt upgrade'
 #alias sysclean='sudo apt clean && sudo apt autoclean && sudo apt autoremove --purge'
-alias notes='vim ~/notes.txt'
+alias notes='vim ~/notes/notes.txt'
 alias vimrc='vim ~/.vimrc'
-#alias zshrc='vim ~/.zshrc'
-#alias zsh_history='vim ~/.zsh_history'
+alias zshrc='vim ~/.zshrc'
+alias zsh_history='vim ~/.config/zsh/.zsh_history'
 
 ## NAVIGATION
 alias ..='cd ..'

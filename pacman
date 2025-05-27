@@ -15,6 +15,9 @@ sudo pacman -Ss keyword
 Find available local packages
 sudo pacman -Qs keyword
 
+Show manually installed from AUR
+pacman -Qm
+
 List all files from package
 pacman -Ql pkgname
 
@@ -29,9 +32,6 @@ sudo pacman -Rs package_name
 
 List all packages no longer required as dependencies
 sudo pacman -Qdt
-
-Get IP address
-ip addr
 
 Get distro version
 lsb_release -a

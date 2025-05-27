@@ -1,5 +1,17 @@
 #!/usr/bin/env zsh
 
+#echo "                                              "
+#echo "                                              "
+#echo "  ## ##   ###  ##   ## ##    ## ##   #### ##  "
+#echo " ##   ##   ##  ##  ##   ##  ##   ##  # ## ##  "
+#echo " ##        ##  ##  ##   ##  ####       ##     "
+#echo " ##  ###   ## ###  ##   ##   #####     ##     "
+#echo " ##   ##   ##  ##  ##   ##      ###    ##     "
+#echo " ##   ##   ##  ##  ##   ##  ##   ##    ##     "
+#echo "  ## ##   ###  ##   ## ##    ## ##    ####    "
+#echo "                                              "                 
+#echo "                                              "
+
 ###############################
 # EXPORT ENVIRONMENT VARIABLE #
 ###############################
@@ -7,11 +19,11 @@
 export DOTFILES="$HOME/.dotfiles"
 export WORKSPACE="$HOME/workspace"
 
-## ERRFILE
-ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
-ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
+### ERRFILE
+#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
+#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
 
-## XDG
+### XDG
 #export XDG_CONFIG_HOME=$HOME/.config
 #export XDG_CACHE_HOME=$$HOME/.cache
 #export XDG_DATA_HOME=$HOME/.local/share
@@ -20,63 +32,58 @@ ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
 #export XDG_DATA_DIRS=/usr/local/share:/usr/share
 #export XDG_CONFIG_DIRS=/etc/xdg
 
-## ZSH
+### ZSH
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.config/zsh/.histfile"
 export HISTFILE="$HOME/.config/zsh/.zsh_history"    # History filepath
 export HISTSIZE=10000		# Maximum events for internal history
 export SAVEHIST=10000		# Maximum events in history file
 
-## MAN Page
+### MAN Page
 #export MANPAGER='vim +Man!'
 
-## SOURCES
+### SOURCES and PLUGINS
 [ -f ~/.alias ] && source ~/.alias
-source $HOME/.config/zsh/plugins/.zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.config/zsh/plugins/zsh-autopair/autopair.zsh
 
-# Set custom zcompdump location for compinit
+### Set custom zcompdump location for compinit
 autoload -Uz compinit
 compinit -d "$HOME/.config/zsh/.zcompdump"
 
-# Enable case-insensitive completion
+### Enable case-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-## SETOPT
+### SETOPT
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
-## KEYBINDS
-# Home and End keys (common codes)
-bindkey '^[[H' beginning-of-line   # Home
-bindkey '^[[F' end-of-line         # End
+### KEYBINDS
+# Home and End keys
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 
-# Home and End keys (alternate codes)
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[4~' end-of-line
-
-# Ctrl+A and Ctrl+E (should work by default, but can be set explicitly)
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-
-# Ctrl+Left/Right Arrow for word movement (may need these for some terminals)
-bindkey '^[OD' backward-word
-bindkey '^[OC' forward-word
+# Ctrl+Left and Right Arrow for word movement
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
-# Backspace delete
-bindkey '^[[3~' delete-char
-
-# Page Up/Page Down
+# Page Up and Page Down
 bindkey '\e[5~' up-line-or-history
 bindkey '\e[6~' down-line-or-history
+
+# Backspace delete
+bindkey '^[[3~' delete-char
 
 # Substring search with arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-## PROMPT
+# Ctrl+A and Ctrl+E
+#bindkey '^A' beginning-of-line
+#bindkey '^E' end-of-line
+
+### PROMPT
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
@@ -91,7 +98,34 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 fi
 ssh-add ~/.ssh/id_rsa &>/dev/null
 
-## Disable screenblank
+### Disable screenblank
 xset s off && xset -dpms && xset s noblank
 
-## 
+### archive extraction
+# usage: ex <file>
+ex ()
+{
+  if [ -f "$1" ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+###

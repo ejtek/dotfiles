@@ -10,9 +10,8 @@ alias lla='ls -lah --color=auto'
 
 ## SYSTEM UPDATE
 alias sysclean='sudo pacman -Rns $(pacman -Qdtq)'
-#alias update='sudo apt update'
-#alias upgrade='sudo apt upgrade'
-#alias sysclean='sudo apt clean && sudo apt autoclean && sudo apt autoremove --purge'
+
+## EDITS
 alias notes='vim ~/notes/notes.txt'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
@@ -27,39 +26,39 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
 ## CHANGE "ls" to "lsd"
-#alias ls="lsd"
-#alias ll="lsd -l"
-#alias la="lsd -al"
+#alias ls='lsd'
+#alias ll='lsd -l'
+#alias la='lsd -al'
 
 ## CONFIRM INTERACTIVE
-#alias cp="cp -i"
-alias mv="mv -i"
-#alias rm="rm -i"
+#alias cp='cp -i'
+alias mv='mv -i'
+#alias rm='rm -i'
 
 ## MAINTNANCE
-alias du="du -h"
-alias df="df -h"
+alias du='du -h'
+alias df='df -h'
 alias free='free -h'
-alias mem5="ps auxf | sort -nr -k 4 | head -5"
-alias cpu5="ps auxf | sort -nr -k 3 | head -5"
-alias lsmount="mount | column -t"
+alias mem5='ps auxf | sort -nr -k 4 | head -5'
+alias cpu5='ps auxf | sort -nr -k 3 | head -5'
+alias lsmount='mount | column -t'
 
 ## OTHER
 alias cht.sh='curl cheat.sh'
 alias ports='netstat -tulanp'
-alias mkdir="mkdir -pv"
-alias grep="rg"
-alias cat="bat"
-alias ff="firefox"
-alias mp="mousepad"
-alias cherry="cherrytree"
+alias mkdir='mkdir -pv'
+alias grep='rg'
+alias cat='bat'
+alias ff='firefox'
+alias mp='mousepad'
+alias cherry='cherrytree'
 
 ## UTILS
 alias path='echo -e ${PATH//:/\\n}'
-#alias afk="xdg-screensaver lock"
-alias extip="curl icanhazip.com"
-alias wtr="curl wttr.in"
-alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+#alias afk='xdg-screensaver lock'
+alias extip='curl icanhazip.com'
+alias wtr='curl wttr.in'
+alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 ## COLORS
 alias diff='colordiff'

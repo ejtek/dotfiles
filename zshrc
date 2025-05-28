@@ -20,8 +20,8 @@ export DOTFILES="$HOME/.dotfiles"
 export WORKSPACE="$HOME/workspace"
 
 ### ERRFILE
-#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
-#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
+ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
+ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
 
 ### XDG
 #export XDG_CONFIG_HOME=$HOME/.config

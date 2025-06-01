@@ -1,6 +1,10 @@
 [user]
 	name = ejtek
 	email = 25411313+ejtek@users.noreply.github.com
+[init]
+    defaultBranch = main
+[color]
+    ui = auto
 [alias]
 	nccommit = commit --allow-empty-message -m \"\"
 [safe]

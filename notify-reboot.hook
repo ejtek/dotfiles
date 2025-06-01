@@ -1,0 +1,18 @@
+# /etc/pacman.d/hooks/notify-reboot.hook
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = linux
+Target = linux-lts
+# Add more core packages as needed, e.g.:
+Target = linux-headers
+Target = linux-lts-headers
+Target = systemd
+Target = sqlite
+# Target = glibc
+# Target = openssl
+
+[Action]
+Description = Notify user to reboot after core package upgrade
+When = PostTransaction
+Exec = /usr/bin/notify-send "Reboot recommended!" "Reboot is recommended due to the upgrade of core system package(s)."

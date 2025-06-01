@@ -16,21 +16,22 @@
 # EXPORT ENVIRONMENT VARIABLE #
 ###############################
 
+### XDG
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_RUNTIME_DIR=/run/user/$UID
+export XDG_DATA_DIRS=/usr/local/share:/usr/share
+
+### PATH
+export PATH="$HOME/.local/bin:$PATH"
 export DOTFILES="$HOME/.dotfiles"
 export WORKSPACE="$HOME/workspace"
 
 ### ERRFILE
-ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
-ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
-
-### XDG
-#export XDG_CONFIG_HOME=$HOME/.config
-#export XDG_CACHE_HOME=$$HOME/.cache
-#export XDG_DATA_HOME=$HOME/.local/share
-#export XDG_STATE_HOME=$HOME/.local/state
-#export XDG_RUNTIME_DIR=/run/user/$UID
-#export XDG_DATA_DIRS=/usr/local/share:/usr/share
-#export XDG_CONFIG_DIRS=/etc/xdg
+#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
+#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
 
 ### ZSH
 export ZDOTDIR="$HOME/.config/zsh"
@@ -39,15 +40,24 @@ export HISTFILE="$HOME/.config/zsh/.zsh_history"    # History filepath
 export HISTSIZE=10000		# Maximum events for internal history
 export SAVEHIST=10000		# Maximum events in history file
 
-### MAN Page
-#export MANPAGER='vim +Man!'
-
-### SOURCES and PLUGINS
+### ALIAS
 [ -f ~/.alias ] && source ~/.alias
+
+### PLUGINS
 source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.config/zsh/plugins/zsh-autopair/autopair.zsh
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-### Set custom zcompdump location for compinit
+### THEMES
+# Powerline 10K
+source $HOME/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.config/zsh/.p10k.zsh
+
+### LS_COLORS <https://geoff.greer.fm/lscolors/>
+#LS_COLORS=$LS_COLORS:'di=1;34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:' ; export LS_COLORS
+
+### Custom zcompdump location for compinit
 autoload -Uz compinit
 compinit -d "$HOME/.config/zsh/.zcompdump"
 
@@ -127,5 +137,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-###

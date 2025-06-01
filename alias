@@ -8,8 +8,14 @@ alias la='ls -a --color=auto'
 alias ll='ls -lh --color=auto'
 alias lla='ls -lah --color=auto'
 
+## LSD
+#alias ls='lsd'
+#alias la='lsd -a'
+#alias ll='lsd -lh'
+#alias lla='lsd -lah'
+
 ## SYSTEM UPDATE
-alias sysclean='sudo pacman -Rns $(pacman -Qdtq)'
+alias update='yay -Syu'
 
 ## EDITS
 alias notes='vim ~/notes/notes.txt'
@@ -32,7 +38,7 @@ alias .5='cd ../../../../..'
 
 ## CONFIRM INTERACTIVE
 #alias cp='cp -i'
-alias mv='mv -i'
+#alias mv='mv -i'
 #alias rm='rm -i'
 
 ## MAINTNANCE
@@ -55,7 +61,6 @@ alias cherry='cherrytree'
 
 ## UTILS
 alias path='echo -e ${PATH//:/\\n}'
-#alias afk='xdg-screensaver lock'
 alias extip='curl icanhazip.com'
 alias wtr='curl wttr.in'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'

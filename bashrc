@@ -18,6 +18,8 @@ ssh-add ~/.ssh/id_rsa &>/dev/null
 
 
 ### EXPORT
+export PATH="$HOME/.local/bin:$PATH"
+#export HISTFILE=$HOME/.config/bash/.bash_history
 export HISTCONTROL=ignoreboth
 #export HISTCONTROL=erasedups
 

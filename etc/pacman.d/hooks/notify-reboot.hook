@@ -7,6 +7,7 @@ Target = linux-lts
 # Add more core packages as needed, e.g.:
 Target = linux-headers
 Target = linux-lts-headers
+target = coreutils
 Target = systemd
 Target = sqlite
 # Target = glibc

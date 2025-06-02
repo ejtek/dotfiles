@@ -31,11 +31,6 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-## CHANGE "ls" to "lsd"
-#alias ls='lsd'
-#alias ll='lsd -l'
-#alias la='lsd -al'
-
 ## CONFIRM INTERACTIVE
 #alias cp='cp -i'
 #alias mv='mv -i'
@@ -76,5 +71,5 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 ## SCRIPTS
-#alias d='dirs -v'
-#for index ({1..9}) alias "$index"="cd +${index}"; unset index
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index

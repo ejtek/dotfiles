@@ -10,9 +10,9 @@ set runtimepath^=~/.config/vim/
 
 call plug#begin('~/.config/vim/plugged/')
 
-Plug 'haishanh/night-owl.vim'
+"Plug 'haishanh/night-owl.vim'
 Plug 'vim-airline/vim-airline'
-"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'nordtheme/vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
@@ -77,7 +77,7 @@ syntax on
 
 set cursorline
 set termguicolors 
-colorscheme night-owl
+colorscheme dracula
 
 hi Comment cterm=italic
 

@@ -14,7 +14,7 @@ PS1='[\u@\h \W]\$ '
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     eval "$(ssh-agent -s)"
 fi
-ssh-add ~/.ssh/id_rsa &>/dev/null
+ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
 
 ### EXPORT

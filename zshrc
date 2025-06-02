@@ -29,10 +29,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export DOTFILES="$HOME/.dotfiles"
 export WORKSPACE="$HOME/workspace"
 
-### ERRFILE
-#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors"
-#ERRFILE="$XDG_CACHE_HOME/X11/.xsession-errors.old"
-
 ### ZSH
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.config/zsh/.histfile"
@@ -48,14 +44,19 @@ source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substr
 source $HOME/.config/zsh/plugins/zsh-autopair/autopair.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh/themes/dracula/dracula-syntax-highlighting
 
-### THEMES
-# Powerline 10K
+### POWERLINE 10K
+# to customize prompt, run 'p10k configure' or edit ~/.config/zsh/.p10k.zsh
 source $HOME/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 source $HOME/.config/zsh/.p10k.zsh
 
-### LS_COLORS <https://geoff.greer.fm/lscolors/>
-#LS_COLORS=$LS_COLORS:'di=1;34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:' ; export LS_COLORS
+# Load DIRCOLORS config
+#eval "$(dircolors ~/.config/dircolors/colors.conf)"
+#eval "$(dircolors ~/Downloads/dracula/dircolors/.dircolors)"
+
+# Export LS_COLORS for proper application
+#export LS_COLORS
 
 ### Custom zcompdump location for compinit
 autoload -Uz compinit
@@ -106,7 +107,7 @@ PROMPT='%F{green}%*%f %F{magenta}%~%f %F{#ffff00}${vcs_info_msg_0_}%f$ '
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     eval "$(ssh-agent -s)"
 fi
-ssh-add ~/.ssh/id_rsa &>/dev/null
+ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
 ### Disable screenblank
 xset s off && xset -dpms && xset s noblank

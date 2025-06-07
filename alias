@@ -3,21 +3,22 @@
 ###########
 
 ## NAVIGATION
-alias ls='ls --color=auto'
-alias la='ls -a --color=auto'
-alias ll='ls -lh --color=auto'
-alias lla='ls -lah --color=auto'
+#alias ls='ls --color=auto'
+#alias la='ls -a --color=auto'
+#alias ll='ls -lh --color=auto'
+#alias lla='ls -lah --color=auto'
 
 ## LSD
-#alias ls='lsd'
-#alias la='lsd -a'
-#alias ll='lsd -lh'
-#alias lla='lsd -lah'
+alias ls='lsd'
+alias la='lsd -a'
+alias ll='lsd -lh'
+alias lla='lsd -lah'
 
 ## SYSTEM UPDATE
 alias update='yay -Syu'
 
 ## EDITS
+alias bug='vim ~/bugs/bugs.txt'
 alias notes='vim ~/notes/notes.txt'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
@@ -36,6 +37,24 @@ alias .5='cd ../../../../..'
 #alias mv='mv -i'
 #alias rm='rm -i'
 
+## BAT-EXTRAS
+alias cat='bat'
+alias diff='batdiff'
+#alias grep='batgrep'
+
+## OTHER
+alias open='xdg-open'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias cht.sh='curl cheat.sh'
+alias ports='netstat -tulanp'
+alias mkdir='mkdir -pv'
+alias grep='rg'
+alias v='vim'
+alias bv='brave'
+alias ff='firefox'
+alias mp='mousepad'
+alias cherry='cherrytree'
+
 ## MAINTNANCE
 alias du='du -h'
 alias df='df -h'
@@ -44,16 +63,6 @@ alias mem5='ps auxf | sort -nr -k 4 | head -5'
 alias cpu5='ps auxf | sort -nr -k 3 | head -5'
 alias lsmount='mount | column -t'
 
-## OTHER
-alias cht.sh='curl cheat.sh'
-alias ports='netstat -tulanp'
-alias mkdir='mkdir -pv'
-alias grep='rg'
-alias cat='bat'
-alias ff='firefox'
-alias mp='mousepad'
-alias cherry='cherrytree'
-
 ## UTILS
 alias path='echo -e ${PATH//:/\\n}'
 alias extip='curl icanhazip.com'
@@ -61,13 +70,13 @@ alias wtr='curl wttr.in'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 ## COLORS
-alias diff='colordiff'
+#alias diff='colordiff'
 alias dir='dir --color=auto'
 alias vdir='vdir --color'
-alias grep='grep --color=auto'
+#alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias diff='diff --color=auto'
+#alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 ## SCRIPTS

@@ -1,0 +1,17 @@
+[window]
+# Set window opacity (0.0 is fully transparent, 1.0 is fully opaque)
+#opacity = 0.8
+
+# Add some padding around the terminal content
+padding = { x = 4, y = 0 }
+
+[font]
+# Set the normal font family and size
+normal = { family = "DaddyTimeMono Nerd Font", style = "Regular" }
+size = 14.0
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+
+[colors]
+# Simple color overrides (optional)
+#primary = { background = "#1E1E2E", foreground = "#C0CAF5" }

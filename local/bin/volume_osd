@@ -1,0 +1,33 @@
+#!/bin/bash
+# Arguments: "up", "down", or "toggle"
+action=$1
+step=5
+
+case "$action" in
+  up)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ ${step}%+
+    ;;
+  down)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ ${step}%-
+    ;;
+  toggle)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    ;;
+  *)
+    echo "Usage: $0 {up|down|toggle}"
+    exit 1
+    ;;
+esac
+
+# Get volume and mute status
+volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.0f", $2 * 100}')
+muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo "true" || echo "false")
+
+sleep 0.1  # Small delay to ensure volume change is reflected
+
+# Send notification
+if [ "$muted" = "true" ]; then
+  notify-send "Volume" "Muted"
+else
+  notify-send "Volume" "${volume}%"
+fi

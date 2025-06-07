@@ -10,9 +10,11 @@ set runtimepath^=~/.config/vim/
 
 call plug#begin('~/.config/vim/plugged/')
 
-"Plug 'haishanh/night-owl.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dylanaraps/wal.vim'
+"Plug 'ghifarit53/tokyonight-vim'
+"Plug 'haishanh/night-owl.vim'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'nordtheme/vim'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
@@ -67,7 +69,7 @@ filetype plugin on
 filetype indent on
 
 " Add relative numbers to each line.
-set number relativenumber
+"set number relativenumber
 
 " Color settings
 set background=dark
@@ -75,9 +77,13 @@ set background=dark
 " Turn syntax highlighting on.
 syntax on
 
-set cursorline
+"set cursorline
 set termguicolors 
-colorscheme dracula
+
+"let g:tokyonight_style = 'night' " available: night, storm
+"let g:tokyonight_enable_italic = 1
+
+colorscheme wal 
 
 hi Comment cterm=italic
 
@@ -170,3 +176,13 @@ augroup END
 
 " NERDTree settings
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" TOGGLE line numbers
+function! ToggleLineNumbers()
+    if &number
+        set nonumber
+    else
+        set number
+    endif
+endfunction
+nnoremap <F8> :call ToggleLineNumbers()<CR>

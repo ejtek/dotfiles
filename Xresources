@@ -1,0 +1,6 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+gtk-theme-name: "Arc-Dark"
+#include "/home/gh0st/.cache/wal/colors.Xresources"

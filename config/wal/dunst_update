@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+[ -f "$HOME/.cache/wal/colors.sh" ] && . "$HOME/.cache/wal/colors.sh"
+
+# Overwrite dunstrc with Pywal colors
+cat <<EOF > ~/.config/dunst/dunstrc
+[global]
+frame_color = "$color1"
+
+[urgency_low]
+background = "$color0"
+foreground = "$color15"
+
+[urgency_normal]
+background = "$color1"
+foreground = "$color15"
+
+[urgency_critical]
+background = "$color2"
+foreground = "$color15"
+EOF
+
+# Restart Dunst to apply changes
+pkill dunst && dunst &

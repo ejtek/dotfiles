@@ -1,0 +1,14 @@
+[global]
+frame_color = "#4A837E"
+
+[urgency_low]
+background = "#0c131d"
+foreground = "#c2c4c6"
+
+[urgency_normal]
+background = "#4A837E"
+foreground = "#c2c4c6"
+
+[urgency_critical]
+background = "#26768A"
+foreground = "#c2c4c6"

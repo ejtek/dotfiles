@@ -1,0 +1,58 @@
+# Custom power button script 
+"/home/gh0st/.local/bin/power-menu"
+    XF86PowerOff
+
+# Brightness Up
+"/home/gh0st/.local/bin/brightness_osd 5 up"
+    XF86MonBrightnessUp
+
+# Brightness Down
+"/home/gh0st/.local/bin/brightness_osd 5 down"
+    XF86MonBrightnessDown
+
+# Volume Up
+"/home/gh0st/.local/bin/volume_osd up"
+    XF86AudioRaiseVolume
+
+# Volume Down
+"/home/gh0st/.local/bin/volume_osd down"
+    XF86AudioLowerVolume
+
+# Mute Toggle
+"/home/gh0st/.local/bin/volume_osd toggle"
+    XF86AudioMute
+
+# Play/Pause
+"playerctl play-pause"
+    XF86AudioPlay
+
+# Stop
+"playerctl stop"
+    XF86AudioStop
+
+# Previous Track
+"playerctl previous"
+    XF86AudioPrev
+
+# Next Track
+"playerctl next"
+    XF86AudioNext
+
+# Print screen
+"xfce4-screenshooter -f"
+    Print
+
+# Display settings
+"xfce4-display-settings"
+    XF86Launch7    
+
+#0	KP_Insert
+#1	KP_End
+#2	KP_Down
+#3	KP_Next
+#4	KP_Left
+#5	KP_Begin
+#6	KP_Right
+#7	KP_Home
+#8	KP_Up
+#9	KP_Prior

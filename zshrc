@@ -12,9 +12,13 @@
 #echo "                                              "                 
 #echo "                                              "
 
+
 ###############################
 # EXPORT ENVIRONMENT VARIABLE #
 ###############################
+export PATH="$HOME/.local/bin:$PATH"
+export DOTFILES="$HOME/.dotfiles"
+export WORKSPACE="$HOME/workspace"
 
 ### XDG
 export XDG_CONFIG_HOME=$HOME/.config
@@ -24,10 +28,8 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_RUNTIME_DIR=/run/user/$UID
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 
-### PATH
-export PATH="$HOME/.local/bin:$PATH"
-export DOTFILES="$HOME/.dotfiles"
-export WORKSPACE="$HOME/workspace"
+### FZF
+export FZF_DEFAULT_COMMAND="fd --type f"
 
 ### ZSH
 export ZDOTDIR="$HOME/.config/zsh"
@@ -36,39 +38,38 @@ export HISTFILE="$HOME/.config/zsh/.zsh_history"    # History filepath
 export HISTSIZE=10000		# Maximum events for internal history
 export SAVEHIST=10000		# Maximum events in history file
 
-### ALIAS
-[ -f ~/.alias ] && source ~/.alias
-
-### PLUGINS
-source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $HOME/.config/zsh/plugins/zsh-autopair/autopair.zsh
-source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.config/zsh/themes/dracula/dracula-syntax-highlighting
-
-### POWERLINE 10K
-# to customize prompt, run 'p10k configure' or edit ~/.config/zsh/.p10k.zsh
-source $HOME/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
-source $HOME/.config/zsh/.p10k.zsh
-
-# Load DIRCOLORS config
-#eval "$(dircolors ~/.config/dircolors/colors.conf)"
-#eval "$(dircolors ~/Downloads/dracula/dircolors/.dircolors)"
-
-# Export LS_COLORS for proper application
-#export LS_COLORS
-
-### Custom zcompdump location for compinit
-autoload -Uz compinit
-compinit -d "$HOME/.config/zsh/.zcompdump"
-
-### Enable case-insensitive completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
 ### SETOPT
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
+
+### ALIAS
+[ -f ~/.alias ] && source ~/.alias
+
+### PYWAL color scheme
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+echo -e "$(cat ~/.cache/wal/sequences)"
+
+### Compinit && zcompdump
+autoload -Uz compinit
+compinit -d "$HOME/.config/zsh/.zcompdump"
+
+### FZF
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+### THEMES && PLUGINS
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.config/zsh/plugins/zsh-autopair/autopair.zsh
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh/themes/dracula/dracula-syntax-highlighting
+#source $HOME/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+
+### Enable case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 ### KEYBINDS
 # Home and End keys
@@ -94,18 +95,13 @@ bindkey '^[[B' history-substring-search-down
 #bindkey '^A' beginning-of-line
 #bindkey '^E' end-of-line
 
-### PROMPT
-autoload -Uz vcs_info
-precmd() { vcs_info }
+### MANPAGER
+#export BAT_THEME="Dracula"
+eval "$(batman --export-env)"
 
-zstyle ':vcs_info:git:*' formats '%b '
-
-setopt PROMPT_SUBST
-PROMPT='%F{green}%*%f %F{magenta}%~%f %F{#ffff00}${vcs_info_msg_0_}%f$ '
-
-### SSH
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    eval "$(ssh-agent -s)"
+### SSH agent
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+    eval "$(ssh-agent -s)" >/dev/null 2>&1
 fi
 ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
@@ -138,3 +134,11 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+### ALIAS
+[ -f ~/.alias ] && source ~/.alias
+
+### POWERLINE 10K
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+source $HOME/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

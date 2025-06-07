@@ -1,0 +1,15 @@
+#!/bin/bash
+step=${1:-5}  # default step
+direction=$2  # up or down
+
+if [[ $direction == "up" ]]; then
+    brightnessctl set "${step}%+"
+else
+    brightnessctl set "${step}%-"
+fi
+
+current=$(brightnessctl get)
+max=$(brightnessctl max)
+percent=$(( 100 * current / max ))
+
+notify-send "Brightness" "${percent}%"

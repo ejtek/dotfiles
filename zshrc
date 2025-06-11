@@ -12,9 +12,10 @@
 #echo "                                              "                 
 #echo "                                              "
 
-###############################
-# EXPORT ENVIRONMENT VARIABLE #
-###############################
+
+################################
+# EXPORT ENVIRONMENT VARIABLES #
+################################
 export PATH="$HOME/.local/bin:$PATH"
 export DOTFILES="$HOME/.dotfiles"
 export WORKSPACE="$HOME/workspace"
@@ -27,15 +28,15 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_RUNTIME_DIR=/run/user/$UID
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 
-### FZF
+### OTHER
 export FZF_DEFAULT_COMMAND="fd --type f"
 
 ### ZSH
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.config/zsh/.histfile"
 export HISTFILE="$HOME/.config/zsh/.zsh_history"    # History filepath
-export HISTSIZE=10000		# Maximum events for internal history
-export SAVEHIST=10000		# Maximum events in history file
+export HISTSIZE=10000                       		# Maximum events for internal history
+export SAVEHIST=10000                       		# Maximum events in history file
 
 ### SSH
 # Check if ssh-agent is running, start it if not
@@ -50,6 +51,15 @@ export SSH_AGENT_PID=$(pgrep -u "$USER" ssh-agent)  # Explicitly set the PID
 # Add SSH key to the agent
 ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
+### ALIAS
+[ -f ~/.alias ] && source ~/.alias
+
+### MANPAGER
+eval "$(batman --export-env)"
+
+### PYWAL color scheme
+echo -e "$(cat ~/.cache/wal/sequences)"
+
 ### SETOPT
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_ALL_DUPS
@@ -57,15 +67,6 @@ setopt NO_EXTENDED_HISTORY
 #setopt SHARE_HISTORY
 #setopt HIST_IGNORE_DUPS
 #setopt HIST_EXPIRE_DUPS_FIRST
-
-### ALIAS
-[ -f ~/.alias ] && source ~/.alias
-
-### PYWAL color scheme
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-echo -e "$(cat ~/.cache/wal/sequences)"
 
 ### Compinit && zcompdump
 autoload -Uz compinit
@@ -110,12 +111,6 @@ bindkey '^[[B' history-substring-search-down
 #bindkey '^A' beginning-of-line
 #bindkey '^E' end-of-line
 
-### MANPAGER
-eval "$(batman --export-env)"
-
-### Disable screenblank
-xset s off && xset -dpms && xset s noblank
-
 ### archive extraction
 # usage: ex <file>
 ex ()
@@ -143,8 +138,8 @@ ex ()
   fi
 }
 
-### ALIAS
-[ -f ~/.alias ] && source ~/.alias
+### Disable screenblank
+xset s off && xset -dpms && xset s noblank
 
 ### POWERLINE 10K
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.

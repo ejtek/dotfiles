@@ -232,14 +232,16 @@ bar {
 ##### END PYWAL #####
 
 # Window borders
-default_border pixel 1
-default_floating_border pixel 0
+for_window [class=".*"] border pixel 0
+#default_border pixel 0
+#default_floating_border pixel 0
 #hide_edge_borders vertical
-#for_window [class=".*"] border normal
 
 # Border gaps
-gaps inner 4
-gaps outer 4
+gaps top 0
+gaps bottom 3
+gaps inner 3
+gaps outer 3
 
 # i3blocks calendar
 for_window [class="Yad"] floating enable, move position mouse

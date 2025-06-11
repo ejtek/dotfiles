@@ -1,5 +1,6 @@
 [global]
 frame_color = "#4A837E"
+font = "Terminess Nerd Font 13"
 
 [urgency_low]
 background = "#0c131d"

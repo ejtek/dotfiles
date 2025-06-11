@@ -1,0 +1,31 @@
+#!/bin/bash
+# Hard-coded directory where the files will be renamed
+TARGET_DIR="/home/gh0st/.dotfiles/config/vim/templates/"
+
+# Check if TARGET_DIR exists
+if [ ! -d "$TARGET_DIR" ]; then
+  echo "Error: Directory $TARGET_DIR does not exist."
+  exit 1
+fi
+
+# Iterate over each regular file in the target directory
+for file in "$TARGET_DIR"/*; do
+  if [ -f "$file" ]; then
+    # Get the filename and extract its extension
+    filename=$(basename "$file")
+    ext="${filename##*.}"
+
+    # Construct the new name: skel.<extension>
+    newname="$TARGET_DIR/skel.$ext"
+
+    # Optionally, check if a file with the new name already exists
+    if [ -e "$newname" ]; then
+      echo "Warning: $newname already exists. Skipping $file to avoid overwrite."
+      continue
+    fi
+
+    # Rename the file
+    mv "$file" "$newname"
+    echo "Renamed '$file' to '$newname'"
+  fi
+done

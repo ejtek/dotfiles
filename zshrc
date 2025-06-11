@@ -12,7 +12,6 @@
 #echo "                                              "                 
 #echo "                                              "
 
-
 ###############################
 # EXPORT ENVIRONMENT VARIABLE #
 ###############################
@@ -38,10 +37,26 @@ export HISTFILE="$HOME/.config/zsh/.zsh_history"    # History filepath
 export HISTSIZE=10000		# Maximum events for internal history
 export SAVEHIST=10000		# Maximum events in history file
 
+### SSH
+# Check if ssh-agent is running, start it if not
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)" >/dev/null 2>&1
+fi
+
+# Export necessary SSH environment variables
+export SSH_AUTH_SOCK=$(ls /tmp/ssh-*/agent.* 2>/dev/null | head -n 1)
+export SSH_AGENT_PID=$(pgrep -u "$USER" ssh-agent)  # Explicitly set the PID
+
+# Add SSH key to the agent
+ssh-add ~/.ssh/id_ed25519 &>/dev/null
+
 ### SETOPT
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_ALL_DUPS
+setopt NO_EXTENDED_HISTORY
+#setopt SHARE_HISTORY
+#setopt HIST_IGNORE_DUPS
+#setopt HIST_EXPIRE_DUPS_FIRST
 
 ### ALIAS
 [ -f ~/.alias ] && source ~/.alias
@@ -96,14 +111,7 @@ bindkey '^[[B' history-substring-search-down
 #bindkey '^E' end-of-line
 
 ### MANPAGER
-#export BAT_THEME="Dracula"
 eval "$(batman --export-env)"
-
-### SSH agent
-if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-    eval "$(ssh-agent -s)" >/dev/null 2>&1
-fi
-ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
 ### Disable screenblank
 xset s off && xset -dpms && xset s noblank

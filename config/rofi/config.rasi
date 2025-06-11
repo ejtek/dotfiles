@@ -2,6 +2,16 @@
  * ROFI Arch Dark Transparent colors for EndeavourOS
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
+
+configuration {
+    fixed-num-lines: false;
+    lines: 6;
+}
+
+/* pywal color scheme */
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+
 * {
     selected-normal-foreground:  rgba ( 255, 147, 5, 100 % );
     foreground:                  rgba ( 196, 203, 212, 100 % );
@@ -32,7 +42,3 @@
     active-background:           rgba ( 29, 31, 33, 17 % );
     selected-active-background:  rgba ( 26, 28, 35, 100 % );
 }
-
-/* pywal color scheme */
-/* Dark theme. */
-@import "~/.cache/wal/colors-rofi-dark"

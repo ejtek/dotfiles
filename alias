@@ -19,7 +19,7 @@ alias update='yay -Syu'
 
 ## EDITS
 alias bug='vim ~/bugs/bugs.txt'
-alias notes='vim ~/notes/notes.txt'
+alias notes='vim ~/notes/notes'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 alias zsh_history='vim ~/.config/zsh/.zsh_history'
@@ -43,9 +43,10 @@ alias diff='batdiff'
 #alias grep='batgrep'
 
 ## OTHER
+alias i3l='./.config/i3lock-color/lock.sh'
 alias open='xdg-open'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias cht.sh='curl cheat.sh'
+#alias cht.sh='curl cheat.sh'
 alias ports='netstat -tulanp'
 alias mkdir='mkdir -pv'
 alias grep='rg'

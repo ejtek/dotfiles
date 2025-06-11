@@ -1,8 +1,5 @@
 export GTK_THEME=Adwaita-dark
 export XDG_SESSION_TYPE=x11
+export XCURSOR_PATH=$HOME/.local/share/icons:$HOME/.icons:/usr/share/icons:/usr/share/pixmaps
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-#exec --no-startup-id picom --config ~/.config/picom/picom.conf
-picom --config ~/.config/picom/picom.conf &
-#wal -R # -R restores the last colorscheme that was in use.
 dunst &
-#xbindkeys -f ~/.config/xbindkeys/xbindkeysrc &

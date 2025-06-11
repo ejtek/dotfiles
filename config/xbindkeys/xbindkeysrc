@@ -11,16 +11,16 @@
     XF86MonBrightnessDown
 
 # Volume Up
-"/home/gh0st/.local/bin/volume_osd up"
-    XF86AudioRaiseVolume
-
-# Volume Down
-"/home/gh0st/.local/bin/volume_osd down"
-    XF86AudioLowerVolume
-
-# Mute Toggle
-"/home/gh0st/.local/bin/volume_osd toggle"
-    XF86AudioMute
+#"/home/gh0st/.local/bin/volume_osd up"
+#    XF86AudioRaiseVolume
+#
+## Volume Down
+#"/home/gh0st/.local/bin/volume_osd down"
+#    XF86AudioLowerVolume
+#
+## Mute Toggle
+#"/home/gh0st/.local/bin/volume_osd toggle"
+#    XF86AudioMute
 
 # Play/Pause
 "playerctl play-pause"

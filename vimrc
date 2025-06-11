@@ -1,7 +1,7 @@
 " vimrc config
 
 " Runtimepath
-set runtimepath^=~/.config/vim/
+set runtimepath+=~/.config/vim
 
 
 " PLUGINS ---------------------------------------------------------------- {{{
@@ -10,15 +10,19 @@ set runtimepath^=~/.config/vim/
 
 call plug#begin('~/.config/vim/plugged/')
 
-Plug 'vim-airline/vim-airline'
 Plug 'dylanaraps/wal.vim'
 "Plug 'ghifarit53/tokyonight-vim'
 "Plug 'haishanh/night-owl.vim'
 "Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'nordtheme/vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/AutoComplPop'
+Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
@@ -67,6 +71,9 @@ filetype plugin on
 
 " Load an indent file for the detected file type.
 filetype indent on
+
+" Add line numbers
+set number
 
 " Add relative numbers to each line.
 "set number relativenumber

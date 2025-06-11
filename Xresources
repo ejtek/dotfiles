@@ -2,5 +2,7 @@ Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
-gtk-theme-name: "Arc-Dark"
+gtk-theme-name: "Adwaita-dark"
+Xcursor.theme: volantes_cursors 
+Xcursor.size: 30
 #include "/home/gh0st/.cache/wal/colors.Xresources"

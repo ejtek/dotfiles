@@ -3,12 +3,17 @@
 #opacity = 0.8
 
 # Add some padding around the terminal content
-padding = { x = 4, y = 0 }
+padding = { x = 4, y = 4 }
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_interval = 750
+blink_timeout = 5
 
 [font]
 # Set the normal font family and size
-normal = { family = "DaddyTimeMono Nerd Font", style = "Regular" }
-size = 14.0
+normal = { family = "ComicShanns Nerd Font", style = "Regular" }
+size = 15.0
 offset = { x = 0, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 

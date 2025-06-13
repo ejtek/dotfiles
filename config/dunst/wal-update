@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Load Pywal colors
+[ -f "$HOME/.cache/wal/colors.sh" ] && . "$HOME/.cache/wal/colors.sh"
+
+# Update colors in dunstrc without overwriting other settings
+sed -i "/^
+
+\[urgency_low\]
+
+/,/^$/s/background = .*/background = \"$color0\"/" ~/.config/dunst/dunstrc
+sed -i "/^
+
+\[urgency_low\]
+
+/,/^$/s/foreground = .*/foreground = \"$color7\"/" ~/.config/dunst/dunstrc
+
+sed -i "/^
+
+\[urgency_normal\]
+
+/,/^$/s/background = .*/background = \"$color1\"/" ~/.config/dunst/dunstrc
+sed -i "/^
+
+\[urgency_normal\]
+
+/,/^$/s/foreground = .*/foreground = \"$color7\"/" ~/.config/dunst/dunstrc
+
+sed -i "/^
+
+\[urgency_critical\]
+
+/,/^$/s/background = .*/background = \"$color2\"/" ~/.config/dunst/dunstrc
+sed -i "/^
+
+\[urgency_critical\]
+
+/,/^$/s/foreground = .*/foreground = \"$color7\"/" ~/.config/dunst/dunstrc
+
+# Restart Dunst
+killall dunst && dunst &

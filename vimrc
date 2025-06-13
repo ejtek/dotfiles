@@ -22,6 +22,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()

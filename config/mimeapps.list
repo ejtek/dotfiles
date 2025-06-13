@@ -1,0 +1,19 @@
+[Default Applications]
+image/png=org.xfce.ristretto.desktop
+image/jpg=org.xfce.ristretto.desktop
+image/jpeg=org.xfce.ristretto.desktop
+image/svg=org.xfce.ristretto.desktop
+image/gif=org.xfce.ristretto.desktop
+application/pdf=org.xfce.xreader.desktop
+audio/x-wav=org.xfce.parole.desktop
+audio/wav=org.xfce.parole.desktop
+
+[Added Associations]
+image/png=org.xfce.ristretto.desktop;
+image/jpg=org.xfce.ristretto.desktop;
+image/jpeg=org.xfce.ristretto.desktop;
+image/svg=org.xfce.ristretto.desktop;
+image/gif=org.xfce.ristretto.desktop;
+application/pdf=org.xfce.xreader.desktop;
+audio/x-wav=org.xfce.parole.desktop;
+audio/x-wav=org.xfce.parole.desktop;

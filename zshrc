@@ -12,7 +12,6 @@
 #echo "                                              "                 
 #echo "                                              "
 
-
 ################################
 # EXPORT ENVIRONMENT VARIABLES #
 ################################
@@ -51,22 +50,28 @@ export SSH_AGENT_PID=$(pgrep -u "$USER" ssh-agent)  # Explicitly set the PID
 # Add SSH key to the agent
 ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
-### ALIAS
-[ -f ~/.alias ] && source ~/.alias
-
-### MANPAGER
-eval "$(batman --export-env)"
-
 ### PYWAL color scheme
 echo -e "$(cat ~/.cache/wal/sequences)"
 
+### MANPAGER
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+#export BAT_THEME="dracula"
+#eval "$(batman --export-env)"
+
+### ALIAS
+[ -f ~/.alias ] && source ~/.alias
+
 ### SETOPT
-setopt HIST_IGNORE_SPACE
-setopt HIST_IGNORE_ALL_DUPS
-setopt NO_EXTENDED_HISTORY
-#setopt SHARE_HISTORY
-#setopt HIST_IGNORE_DUPS
-#setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_SPACE               # Don't record commands starting with a space
+#setopt HIST_IGNORE_DUPS                # Ignore consecutive duplicates
+setopt HIST_IGNORE_ALL_DUPS            # Remove all previous duplicates of a command before saving
+#setopt HIST_SAVE_NO_DUPS               # Don't write duplicate entries to the history file
+#setopt HIST_EXPIRE_DUPS_FIRST          # Expire duplicate entries first when trimming history
+#setopt HIST_FIND_NO_DUPS               # Don't show duplicates when searching history
+#setopt HIST_REDUCE_BLANKS              # Remove superfluous blanks before recording
+setopt INC_APPEND_HISTORY              # Write to history file immediately, not just on shell exit
+#setopt SHARE_HISTORY                   # Share history between all sessions
+unsetopt EXTENDED_HISTORY              # For timestamped history
 
 ### Compinit && zcompdump
 autoload -Uz compinit
@@ -139,7 +144,7 @@ ex ()
 }
 
 ### Disable screenblank
-xset s off && xset -dpms && xset s noblank
+xset s 0 && xset s off && xset -dpms && xset s noblank
 
 ### POWERLINE 10K
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.

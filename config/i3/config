@@ -12,11 +12,17 @@
 # Pywal color scheme
 exec --no-startup-id wal -R
 
+# Dunst
+exec --no-startup-id dunst &
+
 # Picom
 exec --no-startup-id picom --config ~/.config/picom/picom.conf &
 
 # Xbindkeys
 exec xbindkeys -f ~/.config/xbindkeys/xbindkeysrc &
+
+# i3lock
+exec --no-startup-id xss-lock -- ~/.config/i3lock-color/lock.sh -c 000000
 
 set $mod Mod4
 
@@ -45,8 +51,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send "Volume" "Volume raised by 10" && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send "Volume" "Volume lowered by 10" && $refresh_i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send "Volume" "Volume raised by 10" && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send "Volume" "Volume lowered by 10" && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -251,4 +257,4 @@ assign [class="Brave-browser"] $ws2
 
 # Custom keybinds
 bindsym $mod+b exec brave
-#bindsym Control_R+Delete exec --no-startup-id ~/.config/i3lock-color/lock.sh
+bindsym $mod+Control+1 exec --no-startup-id ~/.config/i3lock-color/lock.sh

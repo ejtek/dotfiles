@@ -1,15 +1,19 @@
 [global]
-frame_color = "#4A837E"
-font = "Terminess Nerd Font 13"
+    frame_color = "#66375D"
+    font = "Terminess Nerd Font 13"
+    notification_limit = 5
+    progress_bar = true
+    history_length = 10
+    timeout = 3
 
 [urgency_low]
-background = "#0c131d"
-foreground = "#c2c4c6"
+    background = "#0a0916"
+    foreground = "#c1c1c4"
 
 [urgency_normal]
-background = "#4A837E"
-foreground = "#c2c4c6"
+    background = "#66375D"
+    foreground = "#c1c1c4"
 
 [urgency_critical]
-background = "#26768A"
-foreground = "#c2c4c6"
+    background = "#8D3F66"
+    foreground = "#c1c1c4"

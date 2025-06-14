@@ -3,3 +3,4 @@ export XDG_SESSION_TYPE=x11
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_PATH=$HOME/.local/share/icons:$HOME/.icons:/usr/share/icons:/usr/share/pixmaps
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+#systemctl --user start wpa_supplicant.service # Start network services

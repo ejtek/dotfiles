@@ -18,7 +18,7 @@ alias lla='lsd -lah'
 alias update='yay -Syu'
 
 ## EDITS
-alias bug='vim ~/bugs/bugs.txt'
+alias debug='vim ~/debug/debug.txt'
 alias notes='vim ~/notes/notes'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'

@@ -144,10 +144,12 @@ ex ()
   fi
 }
 
-### Disable screenblank
-xset s 0 && xset s off && xset -dpms && xset s noblank
+### Disable screensaver, power-saving monitor and screen blanking
+#xset s off && xset -dpms && xset s noblank
 
 ### POWERLINE 10K
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 source $HOME/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+fastfetch

@@ -1,21 +1,33 @@
 #!/bin/bash
+
+#=================================================================#
+#                                                                 #
+#   ██╗  ██╗██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗  #
+#   ╚██╗██╔╝██╔══██╗██╔══██╗██╔═══██╗██╔════╝██║██║     ██╔════╝  #
+#    ╚███╔╝ ██████╔╝██████╔╝██║   ██║█████╗  ██║██║     █████╗    #
+#    ██╔██╗ ██╔═══╝ ██╔══██╗██║   ██║██╔══╝  ██║██║     ██╔══╝    #
+#   ██╔╝ ██╗██║     ██║  ██║╚██████╔╝██║     ██║███████╗███████╗  #
+#   ╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝  #
+#                                                                 #
+#=================================================================#
+
 # ~/.xprofile
 # This script runs when your X session starts (for display managers like LightDM, SDDM, etc.)
 # It's often used to set environment variables, launch background processes, or configure display settings.
-
+ 
 # --- Environment configuration ---
 export GTK_THEME=Adwaita-dark
 export XDG_SESSION_TYPE=x11
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_PATH=$HOME/.local/share/icons:$HOME/.icons:/usr/share/icons:/usr/share/pixmaps
-
+ 
 # --- Merge Xresources if available ---
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-
+ 
 # --- Display and power settings ---
 xset s off           # Disable screensaver
 xset -dpms           # Disable display power management
 xset s noblank       # Prevent screen blanking
-
-# --- Display and power settings ---
-#systemctl --user start wpa_supplicant.service      # Network services
+ 
+# --- Network services ---
+#systemctl --user start wpa_supplicant.services

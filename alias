@@ -1,6 +1,17 @@
-###########
-# ALIASES 
-###########
+#=========================================#
+#                                         #
+#    █████╗ ██╗     ██╗ █████╗ ███████╗   #
+#   ██╔══██╗██║     ██║██╔══██╗██╔════╝   #
+#   ███████║██║     ██║███████║███████╗   #
+#   ██╔══██║██║     ██║██╔══██║╚════██║   #
+#   ██║  ██║███████╗██║██║  ██║███████║   #
+#   ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝   #
+#                                         #
+#=========================================#
+
+## SYSTEM UPDATE
+alias aur-update='yay -Syu'
+alias pac-update='sudo pacman -Syu'
 
 ## NAVIGATION
 #alias ls='ls --color=auto'
@@ -8,23 +19,7 @@
 #alias ll='ls -lh --color=auto'
 #alias lla='ls -lah --color=auto'
 
-## LSD
-alias ls='lsd'
-alias la='lsd -a'
-alias ll='lsd -lh'
-alias lla='lsd -lah'
-
-## SYSTEM UPDATE
-alias update='yay -Syu'
-
-## EDITS
-alias debug='vim ~/debug/debug.txt'
-alias notes='vim ~/notes/notes.md'
-alias vimrc='vim ~/.vimrc'
-alias zshrc='vim ~/.zshrc'
-alias zsh_history='vim ~/.config/zsh/.zsh_history'
-
-## NAVIGATION
+## ADDITIONAL NAVIGATION
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
@@ -32,15 +27,30 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
+## LSD
+alias ls='lsd'
+alias la='lsd -a'
+alias ll='lsd -lh'
+alias lla='lsd -lah'
+
+## BAT-EXTRAS
+alias grep='rg'
+alias cat='bat'
+alias diff='batdiff'
+#alias grep='batgrep'
+
 ## CONFIRM INTERACTIVE
 #alias cp='cp -i'
 #alias mv='mv -i'
 #alias rm='rm -i'
 
-## BAT-EXTRAS
-alias cat='bat'
-alias diff='batdiff'
-#alias grep='batgrep'
+## EDITS
+alias debug='vim ~/debug/debug.md'
+alias notes='vim ~/notes/notes.md'
+#alias bashrc='vim ~/.bashrc'
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
+alias zsh_history='vim ~/.config/zsh/.zsh_history'
 
 ## OTHER
 alias i3l='./.config/i3lock-color/lock.sh'
@@ -48,7 +58,6 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias ports='netstat -tulanp'
 #alias mkdir='mkdir -pv'
 alias open='xdg-open'
-alias grep='rg'
 alias v='vim'
 alias qb='qutebrowser'
 alias bv='brave'

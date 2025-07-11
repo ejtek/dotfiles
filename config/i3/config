@@ -248,9 +248,9 @@ default_floating_border pixel 1
 
 # Border gaps
 gaps top 0
-gaps bottom 3
-gaps inner 3
-gaps outer 3
+gaps bottom 5
+gaps inner 5
+gaps outer 5
 
 # i3blocks calendar
 for_window [class="Yad"] floating enable, move position mouse

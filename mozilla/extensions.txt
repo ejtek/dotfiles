@@ -1,3 +1,5 @@
 ublock origin
 dark reader
 frankerfacez
+youtube default settings
+tampermonkey

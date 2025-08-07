@@ -1,0 +1,33 @@
+// ==UserScript==
+// @name         YouTube Force 480p
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Automatically sets YouTube video quality to 480p
+// @author       You
+// @match        https://www.youtube.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Wait until the YouTube player is ready
+    const waitForPlayer = setInterval(() => {
+        const player = document.querySelector('video');
+        const ytPlayer = document.querySelector('#movie_player');
+
+        if (player && ytPlayer && ytPlayer.getAvailableQualityLevels) {
+            clearInterval(waitForPlayer);
+
+            // Try to set quality to 480p
+            const qualityLevels = ytPlayer.getAvailableQualityLevels();
+            if (qualityLevels.includes('large')) {
+                ytPlayer.setPlaybackQuality('large'); // 'large' corresponds to 480p
+                ytPlayer.setPlaybackQualityRange('large');
+                console.log('Video quality set to 480p');
+            } else {
+                console.log('480p not available, available levels:', qualityLevels);
+            }
+        }
+    }, 1000);
+})();

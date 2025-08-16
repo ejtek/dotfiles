@@ -52,10 +52,10 @@ export HISTSIZE=10000                       		# Maximum events for internal hist
 export SAVEHIST=10000                       		# Maximum events in history file
 
 ### CUSTOM FUNCTIONS
-FUNCTIONS_DIR="/$HOME/.config/zsh/functions/"
-for func in "$FUNCTIONS_DIR"/*.zsh; do
-  source "$func"
-done
+#FUNCTIONS_DIR="$HOME/.config/zsh/functions"
+#for func in "$FUNCTIONS_DIR"/*.zsh; do
+#  source "$func"
+#done
 
 ### SSH
 # Check if ssh-agent is running, start it if not

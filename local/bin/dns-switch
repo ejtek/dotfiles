@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DNS_PROFILE_DIR="$HOME/.config/dns_profiles"
+
+# Check if fzf is installed
+if ! command -v fzf &> /dev/null; then
+  echo "fzf is not installed. Please install it first."
+  exit 1
+fi
+
+# Use fzf to select a profile
+selected=$(ls "$DNS_PROFILE_DIR" | fzf --preview="cat $DNS_PROFILE_DIR/{}" --prompt="Select DNS profile: ")
+
+# If a profile was selected, apply it
+if [ -n "$selected" ]; then
+  echo "Applying DNS profile: $selected"
+  sudo cp "$DNS_PROFILE_DIR/$selected" /etc/resolv.conf
+  echo "DNS switched to $selected ✅"
+else
+  echo "No profile selected. Operation cancelled."
+fi

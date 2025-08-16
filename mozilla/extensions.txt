@@ -1,5 +1,6 @@
-ublock origin
 dark reader
 frankerfacez
-youtube default settings
+linkqr
 tampermonkey
+ublock origin
+youtube default settings

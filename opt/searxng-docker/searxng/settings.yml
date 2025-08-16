@@ -11,10 +11,10 @@ ui:
 redis:
   url: redis://redis:6379/0
 general:
-  debug: false                     # debug mode, only for development
-  instance_name: "gh0st SearXNG"   # display name
-  contact_url: false               # mail@example.com
-  enable_metrics: true             # record stats
+  debug: false                      # debug mode, only for development
+  instance_name: "gh0st SearXNG"    # display name
+  contact_url: false                # mail@example.com
+  enable_metrics: true              # record stats
 search:
-  safe_search: 0
+  safe_search: 0                    # 0:none 1:moderate 2:strict
   autocomplete: "duckduckgo"
